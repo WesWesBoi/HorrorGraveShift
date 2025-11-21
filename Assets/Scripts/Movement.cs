@@ -65,8 +65,8 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             characterController.height = defaultHeight;
-            walkSpeed = 6f;
-            runSpeed = 12f;
+            walkSpeed = 3f;
+            runSpeed = 10f;
         }
 
         characterController.Move(moveDirection * Time.deltaTime);
