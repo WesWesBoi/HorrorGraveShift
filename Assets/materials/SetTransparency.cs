@@ -25,7 +25,7 @@ public class SetTransparency : MonoBehaviour
     void FixedUpdate()
     {
         {
-            if (Input.GetButtonDown("[E]") && !isFadingUp)
+            if (Input.GetButtonDown("E") && !isFadingUp)
             {
                 if (isFadingUp)
                 {
