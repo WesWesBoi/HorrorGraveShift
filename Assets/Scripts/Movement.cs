@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -12,13 +13,15 @@ public class PlayerMovement : MonoBehaviour
     public float jumpPower = 7f;
     public float gravity = 10f;
     public float lookSpeed = 2f;
-    public float lookXLimit = 44f;
+    public float lookXLimit = 45f;
+    public float lookYLimit = 45f;
     public float defaultHeight = 2f;
     public float crouchHeight = 1f;
     public float crouchSpeed = 3f;
 
     private Vector3 moveDirection = Vector3.zero;
     private float rotationX = 0;
+    private float rotationY = 0;
     private CharacterController characterController;
 
     private bool canMove = true;
@@ -71,12 +74,38 @@ public class PlayerMovement : MonoBehaviour
 
         characterController.Move(moveDirection * Time.deltaTime);
 
-        if (canMove)
+        /*if (canMove)
         {
+            print(Input.GetAxis("Mouse Y"));
             rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
+
+            print (Mathf.Clamp(rotationX, -lookXLimit, lookXLimit));
             rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
+
+            print(Input.GetAxis("Mouse Y"));
+            rotationY += -Input.GetAxis("Mouse Y") * lookSpeed;
+
+            print(Mathf.Clamp(rotationX, -lookXLimit, lookXLimit));
+            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+            rotationY = Mathf.Clamp(rotationY, -lookYLimit, lookYLimit);
+
+
+            print(Quaternion.Euler(rotationX, 0, 0));
+            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
+
+
+            print(Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0));
             transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-        }
+        }*/
+    }
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        print(lookSpeed);
+        Vector2 lookInput = context.ReadValue<Vector2>();
+        rotationX += -lookInput.y * lookSpeed;
+        rotationY += lookInput.x * lookSpeed;
+        rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
+        rotationY = Mathf.Clamp(rotationY, -lookYLimit, lookYLimit);
+        playerCamera.transform.localRotation = Quaternion.Euler(rotationX, rotationY, 0);
     }
 }
