@@ -1,16 +1,18 @@
-using UnityEngine;
-using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneChanger : MonoBehaviour
+public class NewLobbyScene : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene("Task");
+    public string NewScene;
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            SceneManager.LoadScene(NewScene);
+            Debug.Log(NewScene);
         }
     }
 }
