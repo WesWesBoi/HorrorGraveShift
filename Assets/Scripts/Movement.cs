@@ -100,7 +100,6 @@ public class PlayerMovement : MonoBehaviour
     }
     public void OnLook(InputAction.CallbackContext context)
     {
-        print(lookSpeed);
         Vector2 lookInput = context.ReadValue<Vector2>();
         rotationX += -lookInput.y * lookSpeed;
         rotationY += lookInput.x * lookSpeed;

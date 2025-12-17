@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Starting shift.unity
+    path: Assets/Scenes/Start.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Haunted scene.unity
+    path: Assets/Scenes/Task.unity
+    guid: 702962224adefb34a92977b6c3bf3fe2
+  - enabled: 1
+    path: Assets/Scenes/Dream.unity
     guid: 5f76c1ad382fb4c4580ede2060ca6a8a
   - enabled: 1
-    path: Assets/Scenes/After clocking in.unity
+    path: Assets/Scenes/Leave.unity
     guid: 02b10a80698b3e44c93e34b66bb79292
+  - enabled: 1
+    path: Assets/Scenes/Escape.unity
+    guid: 81cf969f130250149a6f50254d7447a5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

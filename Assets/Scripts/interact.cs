@@ -8,24 +8,13 @@ public class interact : MonoBehaviour
     public string message;
 
     public UnityEvent onInteraction;
+    public static HUDController instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        outline = GetComponent<Outline>();
-        DisableOutline();
-    }
+
     public void Interact()
     {
         onInteraction.Invoke();
 
     }
-    public void DisableOutline()
-    {
-        outline.enabled = false;
-    }
-    public void EnableOutline()
-    {
-        outline.enabled = true;
-    }
-  
+   
 }

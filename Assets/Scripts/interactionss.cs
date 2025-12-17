@@ -58,10 +58,10 @@ public class interactionss : MonoBehaviour
     }
     void DisableCurrentInteractable()
     {
-       
+        HUDController.instance.DisableInteractionText();
         if (currentInteractable)
         {
-            currentInteractable.DisableOutline();
+            
             currentInteractable = null;
 
         }
